@@ -1,0 +1,329 @@
+<krpano version="1.0.8.14"  onstart="start_m();" >
+	
+	<plugin name="introimage"
+		url="images/intro.png"
+		keep="true"
+		align="center"
+		alpha="0"
+		onloaded=""
+		enabled="false"
+		
+	/>
+	
+	
+		
+	
+		<action name="showintroimage">
+			tween(plugin[logo].alpha, 1.0, 0.5);
+			tween(plugin[introimage].alpha, 0.8, 0.5);
+			if (infv==true,				
+			set(infv,false));
+			hidei(introimage1,0,0);
+			hidei(introimage1,0,0);
+			set(plugin[introimage].enabled, true);
+		  
+	</action>
+	<action name="hideintroimage">
+			tween(plugin[logo].alpha, 0.5, 0.5);
+			tween(plugin[introimage].alpha, 0.0, 0.5);
+			set(plugin[introimage].enabled, false);
+
+		  
+	</action>
+	<action name="start_m">
+	loadscene(panorama1);
+	set(infv,false);
+	set(sto,1);	
+	set(p1,0);
+	set(p2,0);
+	set(p3,0);
+	set(p4,0);
+	set(p5,0);
+	set(p6,0);
+	set(p7,0);
+	set(p8,0);
+	set(p9,0);
+	set(p10,0);
+	
+	</action>
+	<action name="showi">
+			set(plugin[%1].x,%2);
+			set(plugin[%1].y,%3);
+			tween(plugin[%1].alpha, 0.9, 0.5);
+			set(plugin[%1].enabled, true);
+	  
+	</action>
+
+	<action name="hidei">
+			set(plugin[%1].x,%2);
+			set(plugin[%1].y,%3);
+			tween(plugin[%1].alpha, 0.0, 0.5);
+			set(plugin[%1].enabled, false);
+	  
+	</action>
+	
+	<action name="show">
+			
+	        
+			set(plugin[%1].align, center);
+			set(plugin[%1].x,0);
+			set(plugin[%1].y,0);			
+			tween(plugin[%1].alpha, 1.0, 0.5);
+			set(autorotate.enabled,false); set(plugin[onrotate].visible,true); set(plugin[offrotate].visible,false); 
+			
+	</action>
+
+	<action name="hide">
+			
+					
+			tween(plugin[%1].alpha, 0.0, 0.1);
+			set(plugin[%1].enabled, false);
+		    if (sto==1,
+		  set(autorotate.enabled,true);set(plugin[onrotate].visible,false); set(plugin[offrotate].visible,true););
+	</action>
+	<action name="swi">
+			if (infv==false,
+			set(infv,true);
+			showi(introimage1,0,0);,
+			
+			set(infv,false);
+			hidei(introimage1,0,0);
+			)
+	</action>
+	
+		
+	
+	
+	
+	
+	<textstyle name="buttonstyle"
+			   font="Arial"
+			   fontsize="12"
+			   bold="true"
+			   italic="true"
+			   background="false"
+			   border="false"
+			   textcolor="0x000000"
+			   textalign="justify"
+			   blendmode="layer"
+			   effect="glow(0xFFFFFF,0.85,4,4);dropshadow(4,45,0x000000,4,1);"
+			   />	
+			   <textstyle name="styletran"
+			   font="Calibri"			   		   
+			   fontsize="16"
+			   bold="false"			   
+			   background="true"
+			   backgroundcolor="0xEEEECC"
+			   border="false"
+			   textcolor="0x333300"
+			   alpha="1.0"
+			   blendmode="normal"
+			   effect=""
+			   origin="cursor"
+			   edge="bottom"
+			   textalign="none"
+			   xoffset="0"
+			   yoffset="-3"
+			   />
+			   
+   			   <textstyle name="styletran"
+			   font="Calibri"			   		   
+			   fontsize="16"
+			   bold="false"			   
+			   background="true"
+			   backgroundcolor="0xEEEECC"
+			   border="false"
+			   textcolor="0x333300"
+			   alpha="1.0"
+			   blendmode="normal"
+			   effect=""
+			   origin="cursor"
+			   edge="bottom"
+			   textalign="none"
+			   xoffset="0"
+			   yoffset="-3"
+			   />	
+
+	 <textstyle name="styleport"
+			   font="Calibri"			   		   
+			   fontsize="16"
+			   bold="false"			   
+			   background="true"
+			   backgroundcolor="0x555555"
+			   border="false"
+			   textcolor="0xffffff"
+			   alpha="1.0"
+			   blendmode="normal"
+			   effect=""
+			   origin="center"
+			   edge=""
+			   textalign="none"
+			   xoffset="0"
+			   yoffset="200"
+			   />	
+	
+	 <textstyle name="styleport1"
+			   font="Calibri"			   		   
+			   fontsize="16"
+			   bold="false"			   
+			   background="true"
+			   backgroundcolor="0xEEEECC"
+			   border="false"
+			   textcolor="0x333300"
+			   alpha="1.0"
+			   blendmode="normal"
+			   effect=""
+			   origin="cursor"
+			   edge="bottom"
+			   textalign="none"
+			   xoffset="0"
+			   yoffset="100"
+			   />	
+	<!-- text styles for startup info -->
+	<control usercontrol ="all"
+
+mousetype ="moveto"
+ zoomtocursor ="false"
+ zoomoutcursor ="true"
+ mouseaccelerate="1.00"
+ mousespeed ="10.00"
+ mousefriction ="0.80"
+ headswing ="0.00"
+ keybaccelerate ="0.50"
+ keybspeed ="10.00"
+ keybfriction ="0.90"
+ keybinvert ="false"
+ mousefovchange ="1.00"
+ keybfovchange ="0.75"
+ fovspeed ="3.00"
+ fovfriction ="0.90"
+ movetocursor ="none"
+ cursorsize ="10.0"
+ keycodesleft ="37"
+ keycodesright ="39"
+ keycodesup ="38"
+ keycodesdown ="40"
+ keycodesin ="16,65,107"
+ keycodesout ="17,89,90,109"
+ />
+
+
+	
+		
+<!--Сцена 1 панорама 1  -->		
+<include url="b1.xml" />
+<!--Конец сцены 1 панорамы  -->
+
+<!--Сцена 2 панорама 2  -->		
+<include url="b2.xml" />
+<!--Конец сцены 2 панорама 2  -->
+
+
+<!--Сцена 3 панорама 3  -->		
+<include url="b3.xml" />
+<!--Конец сцены 3 панорама   -->
+
+<!--Сцена 4 панорама 4  -->		
+<include url="b4.xml" />
+<!--Конец сцены 4 панорама   -->
+
+<!--Сцена 5 панорама 5  -->		
+<include url="b5.xml" />
+<!--Конец сцены 5 панорама   -->
+
+<!--Сцена 6 панорама 6  -->		
+<include url="b6.xml" />
+<!--Конец сцены 6 панорама   -->
+
+<!--Сцена 7 панорама 7  -->		
+<include url="b7.xml" />
+<!--Конец сцены 7 панорама   -->
+
+<!--Сцена 8 панорама 8  -->		
+<include url="b8.xml" />
+<!--Конец сцены 8 панорама   -->
+
+
+<!--Сцена 9 панорама 9  -->		
+<include url="b9.xml" />
+<!--Конец сцены 9 панорама   -->
+
+<!--Сцена 10 панорама 10  -->		
+<include url="b10.xml" />
+<!--Конец сцены 10 панорама   -->
+
+ <include url="sound.xml" />
+ 
+ <include url="skin/defaultskin.xml" />
+	<plugin name="options" url="%SWFPATH%/plugins/options.swf" keep="true" view="true" display="true" control="false" image="true" onloaded="open();" />
+	<plugin name="editor" url=" %SWFPATH%/plugins/editor.swf" keep="true" />
+<!-- activated hotpot -->
+   
+    
+    <!-- radar plugin, set heading with "plugin[radar].heading" -->
+    
+    <!-- hotspot style predefines - white hotspot -->
+	<style name="hotspot_ani_white"
+	       url="hotspot_ani_white_64x64x20.png"
+	       crop="0|0|64|64"
+	       frames="20" framewidth="64" frameheight="64" frame="0"
+	       onloaded="hotspot_animate();"
+	       />
+<style name="hotspot_ani_black"
+	       url="hotspot_ani_black_64x64x20.png"
+	       crop="0|0|64|64"
+	       frames="20" framewidth="64" frameheight="64" frame="0"
+	       onloaded="hotspot_animate();"
+	       />
+	<!-- hotspot animation action -->
+	<action name="hotspot_animate">
+		inc(frame,1,get(frames),0);
+		mul(ypos,frame,frameheight);
+		txtadd(crop,'0|',get(ypos),'|',get(framewidth),'|',get(frameheight));
+		delayedcall(0.08, if(loaded, hotspot_animate() ) );
+	</action>
+	
+	<!-- update mask for radar -->
+	<action name="closemap">
+        set(onclick, openmap() );
+        tween(width,100);
+        tween(height,109);
+    </action>
+
+    <action name="openmap">
+        set(onclick, closemap() );
+        tween(width,320);
+        tween(height,349);
+    </action>
+
+	
+
+	<!-- activatespot action - %1 = the current spot, %2 = the current radar heading -->
+	<action name="activatespot">
+		set(plugin[activespot].parent, plugin[%1]);
+		set(plugin[activespot].visible, true);
+		
+		copy(plugin[radar].x, plugin[%1].x);
+		copy(plugin[radar].y, plugin[%1].y);
+		
+		
+		set(plugin[radar].heading, %2);
+	</action>
+		
+		
+		<action name="onegin4">	
+			tween(sound[bgsnd].volume,0.5);
+if (sound[bgsnd].paused==false,
+if  (xml.scene=="15",
+		 	playsound(nsnd, 'onegin4.mp3', 1)););	
+	 </action>
+	 
+		<action name="verse">
+			tween(sound[bgsnd].volume,1);
+		 	stopsound(nsnd);
+			if (sto==1,
+		  set(autorotate.enabled,true);set(plugin[onrotate].visible,false); set(plugin[offrotate].visible,true););	  
+		
+	 </action>
+	 
+</krpano>

@@ -1,0 +1,230 @@
+﻿<!--Сцена 8 панорама 8 Автостоянка -->
+
+
+<scene name="panorama8" onstart="m2();">
+<action name="m2">
+activatespot(scene1, 0);
+set(autorotate.speed,"10");
+if (sto==1,
+set(autorotate.enabled,true); set(plugin[onrotate].visible,false); set(plugin[offrotate].visible,true);,
+set(autorotate.enabled,false);set(plugin[onrotate].visible,true); set(plugin[offrotate].visible,false);
+);
+
+</action>
+
+
+<include url="mapb.xml" />
+	
+	<view hlookat="-140" vlookat="0" maxpixelzoom="1.0" fovmax="150" limitview="range" vlookatmin="-24.478" vlookatmax="24.478" />
+	
+
+	<preview url="8.tiles/preview.jpg" />
+
+	<image type="CUBE" multires="true" tilesize="512">
+		<level tiledimagewidth="7498" tiledimageheight="7498">
+			<cube url="8.tiles/mres_%s/l5/%v/l5_%s_%v_%h.jpg" />
+		</level>
+		<level tiledimagewidth="3750" tiledimageheight="3750">
+			<cube url="8.tiles/mres_%s/l4/%v/l4_%s_%v_%h.jpg" />
+		</level>
+		<level tiledimagewidth="1876" tiledimageheight="1876">
+			<cube url="8.tiles/mres_%s/l3/%v/l3_%s_%v_%h.jpg" />
+		</level>
+		<level tiledimagewidth="938" tiledimageheight="938">
+			<cube url="8.tiles/mres_%s/l2/%v/l2_%s_%v_%h.jpg" />
+		</level>
+		<level tiledimagewidth="512" tiledimageheight="512">
+			<cube url="8.tiles/mres_%s/l1/%v/l1_%s_%v_%h.jpg" />
+		</level>
+		<mobile>
+			<cube url="8.tiles/mobile_%s.jpg" />
+		</mobile>
+	</image>
+
+	
+
+	
+			<plugin name="logo"
+		align="righttop"
+		y="5"
+		x="5"
+		url="images/logo.png"
+		alpha="0.5"
+		keep="true"
+		onover="showintroimage"
+		onout="hideintroimage"
+		
+	/>
+			
+			
+	
+	
+	<!-- example hotspots -->
+
+	
+	 <hotspot name="spot1" style="hotspot_ani_white"   ath=" -42" atv=" -1"
+		
+	 onhover="showtext(Вход в музейный комплекс, styletran)" onclick="looktohotspot(get(name),,smooth(100,50,20));loadscene(panorama1);"  />
+			
+		 
+			 
+			 <plugin name="info"
+		align="bottomright"
+		y="0"
+		x="0"
+		url="images/inf1.png"
+		alpha="0.5"
+		keep="false"
+		crop="0|0|120|38" 
+		onovercrop="0|41|120|38"
+		onover=""
+		onout=""
+		onclick="swi();"
+		
+	/>
+			 
+<plugin name="offrotate"   
+		url="%SWFPATH%/images/buttons.png"
+		devices="desktop"
+		align="bottom"	
+		keep="true"
+		y="10"
+		x="80" 
+		visible="true" 
+		crop="240|0|40|40" 
+		onovercrop="240|40|40|40" 
+		onhover="showtext(Стоп,buttonstyle);"
+		onclick="set(autorotate.enabled,false); set(plugin[onrotate].visible,true); set(plugin[offrotate].visible,false); set(sto,0);"
+		zorder="2"
+	/>
+ 
+ 
+	<plugin name="onrotate"   
+		url="%SWFPATH%/images/buttons.png"
+		devices="desktop"
+		align="bottom"	
+		keep="true"
+		y="10"
+		x="80" 
+		visible="false" 
+		crop="40|0|40|40" 
+		onovercrop="40|40|40|40" 
+		onhover="showtext(Старт,buttonstyle);"
+		onclick="set(autorotate.enabled,true); set(plugin[onrotate].visible,false); set(plugin[offrotate].visible,true);set(sto,1);"
+		zorder="2"
+	/>
+ 
+	
+	
+	
+	
+	
+<plugin name="introimage1"
+		url="images/im0.png"
+		align="center"
+		x="0"
+		y="0"
+		alpha="0"
+		enabled="false"
+		onclick="swi();"		
+		/>
+		
+
+		<hotspot name="hs1" url="images/image.png" 
+	         ath="206" atv="-4" width="50" height="50" scale="1"
+			 visible="true" enabled="true" usecontentsize="false" handcursor="true" capture="true" children="true" maskchildren="false"
+ 	         zorder="0"	         
+	         onover=""
+	         onhover="show(introimage2);action(setmask,invdarkmask,subtract);set(plugin[mask1].visible, true);"
+	         onout="hide(introimage2);set(plugin[mask1].visible,false);"
+	         ondown=""
+	         onup=""
+	         onclick=""
+	         />	
+	
+	<plugin name="introimage2"
+		url="images/fot7.jpg" 
+		align="lefttop"
+		x="-460"
+		y="-310"
+		alpha="0"
+		enabled="false"
+		onclick=""
+		capture="false"		
+		handcursor="false"
+		zorder="5"		
+		/>
+	
+		<hotspot name="hs2" url="images/image.png" 
+	         ath="230" atv="-4" width="50" height="50" scale="1"
+			 visible="true" enabled="true" usecontentsize="false" handcursor="true" capture="true" children="true" maskchildren="false"
+ 	         zorder="0"	         
+	         onover=""
+	         onhover="show(introimage3);action(setmask,invdarkmask,subtract);set(plugin[mask1].visible, true);"
+	         onout="hide(introimage3);set(plugin[mask1].visible,false);"
+	         ondown=""
+	         onup=""
+	         onclick=""
+	         />	
+	
+	<plugin name="introimage3"
+		url="images/fot8.jpg" 
+		align="lefttop"
+		x="-460"
+		y="-310"
+		alpha="0"
+		enabled="false"
+		onclick=""
+		capture="false"		
+		handcursor="false"
+		zorder="5"		
+		/>
+	<hotspot name="hs3" url="images/image.png" 
+	         ath="257" atv="-2.5" width="50" height="50" scale="1"
+			 visible="true" enabled="true" usecontentsize="false" handcursor="true" capture="true" children="true" maskchildren="false"
+ 	         zorder="0"	         
+	         onover=""
+	         onhover="show(introimage4);action(setmask,invdarkmask,subtract);set(plugin[mask1].visible, true);"
+	         onout="hide(introimage4);set(plugin[mask1].visible,false);"
+	         ondown=""
+	         onup=""
+	         onclick=""
+	         />	
+	
+	<plugin name="introimage4"
+		url="images/fot9.jpg" 
+		align="lefttop"
+		x="-460"
+		y="-310"
+		alpha="0"
+		enabled="false"
+		onclick=""
+		capture="false"		
+		handcursor="false"
+		zorder="5"		
+		/>
+	
+		
+		
+		
+	
+    <plugin name="radar"
+	        url="%SWFPATH%/plugins/radar.swf"
+	        alturl="%SWFPATH%/plugins/radar.js"
+	        zorder="1"
+	        keep="true"
+	        heading="0"	
+			parent="map"	        	
+	        align="lefttop"
+	        edge="center"
+	        x="0" y="0"
+			linewidth="1"
+	        linecolor="0"
+			size="50"
+	        fillcolor="0xFF0000"
+	        scale="2.5"
+	        visible="false"
+			editmode="true"
+	        />
+			<plugin name="activespot" parent="radar" url="images/mappointactive.png" keep="true" align="center" edge="center" />
+			</scene>

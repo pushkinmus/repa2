@@ -1,0 +1,180 @@
+﻿<!--Сцена 5 панорама 5 Вход со стороны мельничного пруда -->
+
+
+<scene name="panorama5" onstart="m2();">
+<action name="m2">
+activatespot(scene6, 0);
+set(autorotate.speed,"10");
+if (sto==1,
+set(autorotate.enabled,true); set(plugin[onrotate].visible,false); set(plugin[offrotate].visible,true);,
+set(autorotate.enabled,false);set(plugin[onrotate].visible,true); set(plugin[offrotate].visible,false);
+);
+if (p5==1,
+	set(view.hlookat, -293);
+	set(view.vlookat, 0);
+	set(p5,0);
+	);
+if (p2==1,
+	set(view.hlookat, -293);
+	set(view.vlookat, 0);
+	set(p2,0);
+	);
+	set(p4,1);
+</action>
+
+
+<include url="mapb.xml" />
+	<view hlookat="-43" vlookat="0" maxpixelzoom="1.0" fovmax="150" limitview="range" vlookatmin="-23.726" vlookatmax="23.726" />
+	
+
+	<preview url="5.tiles/preview.jpg" />
+
+	<image type="CUBE" multires="true" tilesize="512">
+		<level tiledimagewidth="7498" tiledimageheight="7498">
+			<cube url="5.tiles/mres_%s/l5/%v/l5_%s_%v_%h.jpg" />
+		</level>
+		<level tiledimagewidth="3750" tiledimageheight="3750">
+			<cube url="5.tiles/mres_%s/l4/%v/l4_%s_%v_%h.jpg" />
+		</level>
+		<level tiledimagewidth="1876" tiledimageheight="1876">
+			<cube url="5.tiles/mres_%s/l3/%v/l3_%s_%v_%h.jpg" />
+		</level>
+		<level tiledimagewidth="938" tiledimageheight="938">
+			<cube url="5.tiles/mres_%s/l2/%v/l2_%s_%v_%h.jpg" />
+		</level>
+		<level tiledimagewidth="512" tiledimageheight="512">
+			<cube url="5.tiles/mres_%s/l1/%v/l1_%s_%v_%h.jpg" />
+		</level>
+		<mobile>
+			<cube url="5.tiles/mobile_%s.jpg" />
+		</mobile>
+	</image>
+	
+	
+
+	
+			<plugin name="logo"
+		align="righttop"
+		y="5"
+		x="5"
+		url="images/logo.png"
+		alpha="0.5"
+		keep="true"
+		onover="showintroimage"
+		onout="hideintroimage"
+		
+	/>
+			
+			
+	
+	
+	<!-- example hotspots -->
+
+	
+	
+	<hotspot name="spot1" style="hotspot_ani_white"   ath=" 177" atv="  -2"
+		
+	 onhover="showtext(К автостоянке, styletran)" onclick="looktohotspot(get(name),,smooth(100,50,20));loadscene(panorama8);"  />
+	 <hotspot name="spot2" style="hotspot_ani_white"   ath=" -30" atv=" 1"
+		
+	 onhover="showtext(К водяной мельнице, styletran)" onclick="looktohotspot(get(name),,smooth(100,50,20));loadscene(panorama9);"  />
+			
+		 <hotspot name="spot3" style="hotspot_ani_white"   ath=" 70" atv=" -0.5"
+		
+	 onhover="showtext(К крестьянскому двору, styletran)" onclick="looktohotspot(get(name),,smooth(100,50,20));loadscene(panorama4);"  />
+	 		
+		 <hotspot name="spot4" style="hotspot_ani_white"   ath=" -50" atv=" 2.5"
+		
+	 onhover="showtext(К мельничному пруду, styletran)" onclick="looktohotspot(get(name),,smooth(100,50,20));loadscene(panorama6);"  />
+	 
+			 
+			 <plugin name="info"
+		align="bottomright"
+		y="0"
+		x="0"
+		url="images/inf1.png"
+		alpha="0.5"
+		keep="false"
+		crop="0|0|120|38" 
+		onovercrop="0|41|120|38"
+		onover=""
+		onout=""
+		onclick="swi();"
+		
+	/>
+			 
+<plugin name="offrotate"   
+		url="%SWFPATH%/images/buttons.png"
+		devices="desktop"
+		align="bottom"	
+		keep="true"
+		y="10"
+		x="80" 
+		visible="true" 
+		crop="240|0|40|40" 
+		onovercrop="240|40|40|40" 
+		onhover="showtext(Стоп,buttonstyle);"
+		onclick="set(autorotate.enabled,false); set(plugin[onrotate].visible,true); set(plugin[offrotate].visible,false); set(sto,0);"
+		zorder="2"
+	/>
+ 
+ 
+	<plugin name="onrotate"   
+		url="%SWFPATH%/images/buttons.png"
+		devices="desktop"
+		align="bottom"	
+		keep="true"
+		y="10"
+		x="80" 
+		visible="false" 
+		crop="40|0|40|40" 
+		onovercrop="40|40|40|40" 
+		onhover="showtext(Старт,buttonstyle);"
+		onclick="set(autorotate.enabled,true); set(plugin[onrotate].visible,false); set(plugin[offrotate].visible,true);set(sto,1);"
+		zorder="2"
+	/>
+ 
+	
+	
+	
+	
+	
+<plugin name="introimage1"
+		url="images/im0.png"
+		align="center"
+		x="0"
+		y="0"
+		alpha="0"
+		enabled="false"
+		onclick="swi();"		
+		/>
+		
+
+		
+		
+		
+	
+
+
+	
+	
+    <plugin name="radar"
+	        url="%SWFPATH%/plugins/radar.swf"
+	        alturl="%SWFPATH%/plugins/radar.js"
+	        zorder="1"
+	        keep="true"
+	        heading="0"	
+			parent="map"	        	
+	        align="lefttop"
+	        edge="center"
+	        x="0" y="0"
+			linewidth="1"
+	        linecolor="0"
+			size="50"
+	        fillcolor="0xFF0000"
+	        scale="2.5"
+	        visible="false"
+			editmode="true"
+	        />
+			<plugin name="activespot" parent="radar" url="images/mappointactive.png" keep="true" align="center" edge="center" />
+			</scene>
